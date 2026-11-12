@@ -1,0 +1,39 @@
+# GreenGuard AI — Offline Energy Claim & Green Finance Verification Manifest
+
+> GreenGuard AI (https://greenguard.argrowthlab.pk) is an offline-capable document intelligence and quantitative audit engine designed for bank green-finance underwriters, corporate sustainability auditors, and ESG risk committees. The platform mathematically audits corporate energy-efficiency claims and solar generation figures against 24-month utility meter telemetry, bi-directional inverter logs, and NASA POWER agroclimatology data with zero external data leakage.
+
+## System Architecture & Technical Specifications
+
+- Core Philosophy: Complete air-gapped data sovereignty with zero third-party cloud data transmission.
+- Quantitative Engine: Deterministic Python Decimal arithmetic adhering to ISO 14064-2 greenhouse gas project quantification principles and IPMVP (International Performance Measurement and Verification Protocol).
+- Extraction Layer: ChromaDB offline vector database paired with local Ollama deep-reasoning models and page-cited document intelligence.
+- Climatology Ground-Truth: NASA POWER API historical solar irradiance (ALLSKY_SFC_SW_DWN) and ambient temperature (T2M) regional baselines across Pakistan.
+- Algorithmic Fairness: Subgroup demographic and regional False Positive Rate (FPR) disparity auditing enforcing <= 10% tolerance across all industrial slices (C03).
+- Adversarial Robustness: Three-stage sanitization, reference clipping, and median smoothing defense neutralizing subtle +-2% input evasion attempts (C09).
+
+## Verification Workspaces
+
+### 1. Electricity Bill & Sustainability Claim Check
+- URL: https://greenguard.argrowthlab.pk/electricity-claim-check
+- Target Evidence: Corporate Sustainability PDF Reports vs. 24-Month Utility Meter Electricity Bills (CSV/JSON).
+- Methodology: ChromaDB extracts quantitative claims with page-level citations. Python Decimal math cross-examines claimed baseline, reporting period consumption, and operating days against actual metered intervals to detect over-claiming, ghost baselines, or uncredited facility shutdowns.
+- Outputs: Audit verification verdict (VERIFIED_ACCURATE, DISCREPANCY_DETECTED, FRAUDULENT_OVERCLAIM), discrepancy percentage, confidence score, and downloadable audit trail.
+
+### 2. Solar Generation, NASA Weather & Zero-Bill Rebound Check
+- URL: https://greenguard.argrowthlab.pk/solar-zero-bill-check
+- Target Evidence: Dedicated Commercial Solar Inverter Generation Logs & Bi-directional Net-Metering Utility CSVs.
+- Methodology: Compares actual metered solar output against NASA POWER weather-expected yield (irradiance kWh/m2/day derated at -0.4%/degC above 25degC standard test condition). Formulates facility balance (Grid Import + Solar Generated - Grid Export) and cross-checks against scikit-learn expected demand to detect technical inverter faults, dust/soiling losses, and rebound consumption masked by zero bills.
+- Outputs: Weather health diagnostic (Normal Weather Variance, Technical Fault Suspected, Exaggerated Generation Claim), facility energy balance, rebound gap kWh, and maintenance action items.
+
+### 3. Regional Fairness & Adversarial Robustness Audit
+- URL: https://greenguard.argrowthlab.pk/fairness-and-robustness
+- Target Directives: C03 Algorithmic Fairness & C09 Adversarial Perturbation Defense.
+- Methodology: Evaluates slice-based False Positive Rate (FPR) disparity across Pakistani provinces (Sindh, Punjab, Khyber Pakhtunkhwa, Balochistan) and enterprise tiers (SME vs. Tier-1 Corporate) to guarantee compliance within a <= 10% parity margin. Subjected to automated +-2% non-critical feature perturbation attacks with 3-stage clipping and temporal smoothing defense.
+- Outputs: Regional disparity matrix, demographic parity delta, adversarial stress-test attack vs. defended comparison, and cryptographically hashed verification certificate.
+
+## Indexable Endpoints & Machine-Readable Resources
+
+- Sitemap: https://greenguard.argrowthlab.pk/sitemap.xml
+- Robots Policy: https://greenguard.argrowthlab.pk/robots.txt
+- Machine Context: https://greenguard.argrowthlab.pk/llms.txt
+- Platform Root: https://greenguard.argrowthlab.pk/
