@@ -1,10 +1,13 @@
 import path from "node:path";
 
-const backendUrl = (
+const configuredBackendUrl = (
   process.env.BACKEND_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
   "http://localhost:8000"
 ).replace(/\/+$/, "");
+const backendUrl = /^https?:\/\//i.test(configuredBackendUrl)
+  ? configuredBackendUrl
+  : `https://${configuredBackendUrl}`;
 
 const nextConfig = {
   reactStrictMode: true,
