@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: greenguard-backend
+    runtime: python
+    plan: free
+    rootDir: backendre
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+
+  - type: web
+    name: greenguard-frontend
+    runtime: node
+    plan: free
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 22.16.0
+      - key: BACKEND_URL
+        fromService:
+          type: web
+          name: greenguard-backend
+          property: hostport

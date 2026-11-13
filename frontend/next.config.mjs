@@ -1,9 +1,11 @@
 import path from "node:path";
 
-const backendUrl = (
+const rawBackendUrl =
   process.env.BACKEND_URL ||
   process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:8000"
+  "http://localhost:8000";
+const backendUrl = (
+  /^https?:\/\//i.test(rawBackendUrl) ? rawBackendUrl : `http://${rawBackendUrl}`
 ).replace(/\/+$/, "");
 
 const nextConfig = {
